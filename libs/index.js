@@ -1,0 +1,3 @@
+const { LIMIT_LENGTH_NAME, LIMIT_LENGTH_PHONE, HTTP_STATUS_CODE } = require('./constants');
+
+module.exports = { LIMIT_LENGTH_NAME, LIMIT_LENGTH_PHONE, HTTP_STATUS_CODE };

@@ -1,5 +1,3 @@
-const StorageAdapter = require("./db");
+const { Contact, joiSchema, favoriteJoiSchema } = require('./contacts');
 
-module.exports = {
-  StorageAdapter,
-};
+module.exports = { Contact, joiSchema, favoriteJoiSchema };
