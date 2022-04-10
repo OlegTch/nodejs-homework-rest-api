@@ -1,4 +1,8 @@
 const { User } = require('./user');
-const { joiRegisterSchema, joiLoginSchema } = require('./usersValidationSchema');
+const {
+  joiRegisterSchema,
+  joiLoginSchema,
+  subscriptionJoiSchema,
+} = require('./usersValidationSchema');
 
-module.exports = { User, joiRegisterSchema, joiLoginSchema };
+module.exports = { User, joiRegisterSchema, joiLoginSchema, subscriptionJoiSchema };

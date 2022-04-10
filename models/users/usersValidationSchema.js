@@ -26,4 +26,12 @@ const joiLoginSchema = Joi.object({
     'string.empty': "field 'password' is not allowed to be empty",
   }),
 });
-module.exports = { joiRegisterSchema, joiLoginSchema };
+
+const subscriptionJoiSchema = Joi.object({
+  favorite: Joi.string().required().messages({
+    'any.required': 'missing field subscription',
+    'string.empty': "field 'subscription' mast be 'starter', 'pro' or 'business'",
+  }),
+});
+
+module.exports = { joiRegisterSchema, joiLoginSchema, subscriptionJoiSchema };
