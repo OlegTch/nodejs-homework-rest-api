@@ -23,19 +23,16 @@ const joiSchema = Joi.object({
       'string.empty': "field 'phone' is not allowed to be empty",
     }),
 
-  favorite: Joi.boolean().optional().messages({
+  favorite: Joi.boolean().optional(),
+
+  owner: Joi.object(),
+});
+
+const favoriteJoiSchema = Joi.object({
+  favorite: Joi.boolean().required().messages({
     'any.required': 'missing field favorite',
     'string.empty': "field 'favorite' can be 'true' ore 'false'",
   }),
 });
 
-const favoriteJoiSchema = Joi.object({
-  favorite: Joi.boolean().required(),
-});
-
-// const schemaCreateContact = joiSchema;
-
-// const schemaUpdateContact = joiSchema;
-
-// module.exports = { schemaCreateContact, schemaUpdateContact, joiSchema };
 module.exports = { joiSchema, favoriteJoiSchema };

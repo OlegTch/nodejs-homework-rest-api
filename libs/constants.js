@@ -9,13 +9,9 @@ const LIMIT_LENGTH_PHONE = {
   match: /^[0-9]/,
 };
 
-const HTTP_STATUS_CODE = {
-  OK: 200,
-  CREATED: 201,
-  NO_CONTENT: 204,
-  BAD_REQUEST: 400,
-  NOT_FOUND: 404,
-  INTERNAL_SERVER_ERROR: 500,
+const LIMIT_LENGTH_PASSWORD = {
+  minlength: 6,
+  maxlength: 30,
 };
 
-module.exports = { LIMIT_LENGTH_NAME, LIMIT_LENGTH_PHONE, HTTP_STATUS_CODE };
+module.exports = { LIMIT_LENGTH_NAME, LIMIT_LENGTH_PHONE, LIMIT_LENGTH_PASSWORD };
