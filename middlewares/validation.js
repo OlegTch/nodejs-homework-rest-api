@@ -1,11 +1,13 @@
-const validateBody = (schema) => async (req, res, next) => {
+const { HTTP_STATUS_CODE } = require('../libs');
+
+const validateBody = schema => async (req, res, next) => {
   try {
     await schema.validateAsync(req.body);
     next();
   } catch (err) {
     return res
-      .status(400)
-      .json({ status: "error", code: 400, message: err.message });
+      .status(HTTP_STATUS_CODE.BAD_REQUEST)
+      .json({ status: 'error', code: HTTP_STATUS_CODE.BAD_REQUEST, message: err.message });
   }
 };
 

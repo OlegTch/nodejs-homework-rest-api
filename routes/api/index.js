@@ -1,9 +1,7 @@
-const router = require('./contacts');
+const routerContact = require('./contacts');
+const routerAuth = require('./auth');
+const routerUsers = require('./users');
 
-module.exports = { router };
+module.exports = { routerContact, routerAuth, routerUsers };
 
-// const {
-//   schemaCreateContact,
-//   schemaUpdateContact,
-// } = require("./contacts-validation-schemes");
-// module.exports = { schemaCreateContact, schemaUpdateContact, router };
+

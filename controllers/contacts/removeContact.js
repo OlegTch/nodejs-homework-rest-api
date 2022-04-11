@@ -2,7 +2,13 @@ const { Contact } = require('../../models');
 const { HTTP_STATUS_CODE } = require('../../libs');
 
 const removeContact = async (req, res, next) => {
-  const contact = await Contact.findByIdAndRemove(req.params.contactId); // findOneAndRemove({_id: contactId})
+  const { _id } = req.user;
+  // const contact = await Contact.findByIdAndRemove(req.params.contactId);
+  const contact = await Contact.findByIdAndRemove({
+    _id: req.params.contactId,
+    owner: _id,
+  }).populate('owner', '_id email subscription');
+
   if (!contact) {
     return res
       .status(HTTP_STATUS_CODE.NOT_FOUND)

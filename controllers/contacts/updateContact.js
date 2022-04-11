@@ -4,7 +4,14 @@ const { HTTP_STATUS_CODE } = require('../../libs');
 const updateContact = async (req, res, next) => {
   const contactId = req.params.contactId;
   const body = req.body;
-  const contact = await Contact.findByIdAndUpdate(contactId, body, { new: true }); // findOneAndUpdate({_id: contactId}, {...body}, {new: true})
+  const { _id } = req.user;
+
+  const contact = await Contact.findOneAndUpdate(
+    { _id: contactId, owner: _id },
+    { ...body },
+    { new: true }
+  ).populate('owner', '_id email subscription');
+  // const contact = await Contact.findByIdAndUpdate(contactId, body, { new: true });
   if (!contact) {
     return res
       .status(HTTP_STATUS_CODE.NOT_FOUND)
