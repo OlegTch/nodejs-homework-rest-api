@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { LIMIT_LENGTH_NAME, LIMIT_LENGTH_PASSWORD } = require('../../libs');
+const { LIMIT_LENGTH_PASSWORD } = require('../../libs');
 const bcrypt = require('bcryptjs');
 
 const userSchema = Schema(

@@ -28,9 +28,8 @@ const joiLoginSchema = Joi.object({
 });
 
 const subscriptionJoiSchema = Joi.object({
-  favorite: Joi.string().required().messages({
-    'any.required': 'missing field subscription',
-    'string.empty': "field 'subscription' mast be 'starter', 'pro' or 'business'",
+  subscription: Joi.string().required().messages({
+    'any.required': "field 'subscription' mast be 'starter', 'pro' or 'business'",
   }),
 });
 
