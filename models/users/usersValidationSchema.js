@@ -28,7 +28,7 @@ const joiLoginSchema = Joi.object({
 });
 
 const subscriptionJoiSchema = Joi.object({
-  subscription: Joi.string().required().messages({
+  subscription: Joi.string().valid('starter', 'pro', 'business').required().messages({
     'any.required': "field 'subscription' mast be 'starter', 'pro' or 'business'",
   }),
 });
