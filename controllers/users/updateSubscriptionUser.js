@@ -2,11 +2,9 @@ const { User } = require('../../models');
 const { HTTP_STATUS_CODE } = require('../../libs');
 
 const updateSubscriptionUser = async (req, res, next) => {
-  const { email, subscription } = req.user;
+  // const { email, subscription } = req.user;
   const body = req.body;
   const { userId } = req.params;
-
-  console.log('req.body: ', req.body);
 
   const user = await User.findOneAndUpdate({ _id: userId }, { ...body }, { new: true });
 
@@ -21,8 +19,10 @@ const updateSubscriptionUser = async (req, res, next) => {
     code: HTTP_STATUS_CODE.OK,
     ResponseBody: {
       user: {
-        email,
-        subscription,
+        id: user._id,
+        email: user.email,
+        subscription: user.subscription,
+        avatarURL: user.avatarURL,
       },
     },
   });

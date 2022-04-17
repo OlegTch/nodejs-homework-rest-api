@@ -1,6 +1,8 @@
+const bcrypt = require('bcryptjs');
+const gravatar = require('gravatar');
+
 const { Schema, model } = require('mongoose');
 const { LIMIT_LENGTH_PASSWORD } = require('../../libs');
-const bcrypt = require('bcryptjs');
 
 const userSchema = Schema(
   {
@@ -25,6 +27,16 @@ const userSchema = Schema(
       default: 'starter',
     },
     token: {
+      type: String,
+      default: null,
+    },
+    avatarURL: {
+      type: String,
+      default: function () {
+        return gravatar.url(this.email, { S: '250' }, true);
+      },
+    },
+    cloudId: {
       type: String,
       default: null,
     },
