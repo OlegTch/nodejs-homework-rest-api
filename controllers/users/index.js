@@ -1,7 +1,6 @@
 const getCurrent = require('./getCurrent');
 
-// module.exports = { getCurrent };
-
 const updateSubscriptionUser = require('./updateSubscriptionUser');
+const avatar = require('./updateAvatarUser');
 
-module.exports = { getCurrent, updateSubscriptionUser };
+module.exports = { getCurrent, updateSubscriptionUser, avatar };

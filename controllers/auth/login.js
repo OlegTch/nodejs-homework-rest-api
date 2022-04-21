@@ -7,7 +7,7 @@ const { SECRET_KEY } = process.env;
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.user);
+
   const user = await User.findOne({ email });
 
   const passCompare = bcrypt.compareSync(password, user.password);
@@ -26,8 +26,9 @@ const login = async (req, res) => {
 
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });
   const result = await User.findByIdAndUpdate(user._id, { token });
-  const { subscription } = result;
-  res.json({
+  const { subscription, avatarURL } = result;
+
+  res.status(HTTP_STATUS_CODE.OK).json({
     status: 'success',
     code: HTTP_STATUS_CODE.OK,
     ResponseBody: {
@@ -35,6 +36,7 @@ const login = async (req, res) => {
       user: {
         email,
         subscription,
+        avatarURL,
       },
     },
   });

@@ -1,3 +1,5 @@
+const { mkdir } = require('fs/promises');
+
 const mongoose = require('mongoose');
 
 const app = require('../app');
@@ -8,7 +10,8 @@ mongoose
   .connect(DB_HOST)
   .then(() => {
     console.log('Database connection successful');
-    app.listen(PORT, () => {
+    app.listen(PORT, async () => {
+      await mkdir(process.env.UPLOAD_FOLDER, { recursive: true });
       console.log(`Server running. Use our API on port: ${PORT}`);
     });
   })

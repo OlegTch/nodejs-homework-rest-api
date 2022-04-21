@@ -12,7 +12,7 @@ const register = async (req, res) => {
   }
   const newUser = await User.create(req.body);
 
-  return res.json({
+  return res.status(HTTP_STATUS_CODE.CREATED).json({
     status: 'success',
     code: HTTP_STATUS_CODE.CREATED,
     ResponseBody: { user: { newUser } },
