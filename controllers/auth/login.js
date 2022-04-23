@@ -12,11 +12,11 @@ const login = async (req, res) => {
 
   const passCompare = bcrypt.compareSync(password, user.password);
 
-  if (!user || !passCompare) {
+  if (!user || !user.verify || !passCompare) {
     return res.status(HTTP_STATUS_CODE.UNAUTHORIZED).json({
       status: 'error',
       code: HTTP_STATUS_CODE.UNAUTHORIZED,
-      message: `Email or password is wrong`,
+      message: `Email is wrong or not verify, or password is wrong`,
     });
   }
 

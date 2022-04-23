@@ -4,6 +4,7 @@ const {
   joiLoginSchema,
   subscriptionJoiSchema,
   avatarJoiSchema,
+  resendEmailSchema,
 } = require('./usersValidationSchema');
 
 module.exports = {
@@ -12,4 +13,5 @@ module.exports = {
   joiLoginSchema,
   subscriptionJoiSchema,
   avatarJoiSchema,
+  resendEmailSchema,
 };

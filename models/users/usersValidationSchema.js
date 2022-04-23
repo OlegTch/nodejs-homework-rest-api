@@ -33,4 +33,10 @@ const subscriptionJoiSchema = Joi.object({
   }),
 });
 
-module.exports = { joiRegisterSchema, joiLoginSchema, subscriptionJoiSchema };
+const resendEmailSchema = Joi.object({
+  email: Joi.string().email().required().messages({
+    'any.required': "field 'email' is not allowed to be empty",
+  }),
+});
+
+module.exports = { joiRegisterSchema, joiLoginSchema, subscriptionJoiSchema, resendEmailSchema };
