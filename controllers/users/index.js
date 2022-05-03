@@ -3,4 +3,7 @@ const getCurrent = require('./getCurrent');
 const updateSubscriptionUser = require('./updateSubscriptionUser');
 const avatar = require('./updateAvatarUser');
 
-module.exports = { getCurrent, updateSubscriptionUser, avatar };
+const verifyEmail = require('./verifyEmail');
+const resendVerifyEmail = require('./resendVerifyEmail');
+
+module.exports = { getCurrent, updateSubscriptionUser, avatar, verifyEmail, resendVerifyEmail };
